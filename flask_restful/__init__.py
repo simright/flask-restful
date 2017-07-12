@@ -282,12 +282,12 @@ class Api(object):
         """
         got_request_exception.send(current_app._get_current_object(), exception=e)
 
-        if not isinstance(e, HTTPException) and current_app.propagate_exceptions:
-            exc_type, exc_value, tb = sys.exc_info()
-            if exc_value is e:
-                raise
-            else:
-                raise e
+        # if not isinstance(e, HTTPException) and current_app.propagate_exceptions:
+        #     exc_type, exc_value, tb = sys.exc_info()
+        #     if exc_value is e:
+        #         raise
+        #     else:
+        #         raise e
 
         headers = Headers()
         if isinstance(e, HTTPException):

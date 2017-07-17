@@ -339,7 +339,7 @@ class Api(object):
         error_cls_name = type(e).__name__
         if error_cls_name in self.errors:
             custom_data = self.errors.get(error_cls_name, {})
-            code = custom_data.get('status', 500)
+            code = custom_data.pop('code', 500)
             data.update(custom_data)
 
         if code == 406 and self.default_mediatype is None:
